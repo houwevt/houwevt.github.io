@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滚动轮播</title>
+	<link rel="stylesheet" href="css/public.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="banner">
+		<div class="arrow arrow-left"><a href="javascript:;">&lt;</a></div>
+		<div class="img-wrapper">
+			<img src="img/test/s1.jpg" alt="" class="img">
+			<img src="img/test/s2.jpg" alt="" class="img">
+			<img src="img/test/s3.jpg" alt="" class="img">
+			<img src="img/test/s4.jpg" alt="" class="img">
+			<img src="img/test/s5.jpg" alt="" class="img">
+			<img src="img/test/s6.jpg" alt="" class="img">
+			<img src="img/test/s7.jpg" alt="" class="img">
+			<img src="img/test/s8.jpg" alt="" class="img">
+			<img src="img/test/s9.jpg" alt="" class="img">
+			<img src="img/test/s10.jpg" alt="" class="img">
+			<img src="img/test/s1.jpg" alt="" class="img">
+		</div>
+		<div class="arrow arrow-right"><a href="javascript:;">&gt;</a></div>
+		<div class="circle">
+			<div class="circle-wrap clear">
+				<div class="circle-item current"></div>
+				<div class="circle-item"></div>
+				<div class="circle-item"></div>
+				<div class="circle-item"></div>
+				<div class="circle-item"></div>
+				<div class="circle-item"></div>
+				<div class="circle-item"></div>
+				<div class="circle-item"></div>
+				<div class="circle-item"></div>
+				<div class="circle-item"></div>
+			</div>
+		</div>
+		
+	</div>
+		<div class="banner">
+		<div class="arrow arrow-left"><a href="javascript:;">&lt;</a></div>
+		<div class="img-wrapper">
+			<img src="img/test/s1.jpg" alt="" class="img">
+			<img src="img/test/s2.jpg" alt="" class="img">
+			<img src="img/test/s3.jpg" alt="" class="img">
+			<img src="img/test/s4.jpg" alt="" class="img">
+			<img src="img/test/s5.jpg" alt="" class="img">
+			<img src="img/test/s6.jpg" alt="" class="img">
+			<img src="img/test/s7.jpg" alt="" class="img">
+			<img src="img/test/s8.jpg" alt="" class="img">
+			<img src="img/test/s9.jpg" alt="" class="img">
+			<img src="img/test/s10.jpg" alt="" class="img">
+			<img src="img/test/s1.jpg" alt="" class="img">
+		</div>
+		<div class="arrow arrow-right"><a href="javascript:;">&gt;</a></div>
+		<div class="circle">
+			<div class="circle-wrap clear">
+				<div class="circle-item current"></div>
+				<div class="circle-item"></div>
+				<div class="circle-item"></div>
+				<div class="circle-item"></div>
+				<div class="circle-item"></div>
+				<div class="circle-item"></div>
+				<div class="circle-item"></div>
+				<div class="circle-item"></div>
+				<div class="circle-item"></div>
+				<div class="circle-item"></div>
+			</div>
+		</div>
+		
+	</div>
+	<script src="js/jquery.1.11.3.js"></script><!-- 引入js文件 -->
+	<script src="js/bannerG.js"></script>
+	<script>
+		var banner1 = new BannerG ($(".banner").eq(0),1500);
+		banner1.init();
+		var banner2 = new BannerG ($(".banner").eq(1),1000);
+		banner2.init();
+	</script>
+</body>
+</html>
