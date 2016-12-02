@@ -89,7 +89,7 @@ $(".phone").hover(function(){
 })
 
 //搜索框获焦失焦事件
-$(".searchTxt").focus(function(){
+$("#logo.searchTxt").focus(function(){
 	//改变搜索框的边框和value值
 	$(this).css({
 		"border":"2px solid #cc1d00",
@@ -434,7 +434,8 @@ floorBanner.init();
 
 var floor = {
 	box:$("#floor .floors"),
-	list:$("#floor .floors > ul > li a"),
+	list:$("#floor .floors > ul > li"),
+	listItem:$("#floor .floors > ul > li a"),
 	item:$("#floor .floor"),
 	backTop:$("#floor .floors .floors0"),
 	flag:false, //定义开关，true表示点击，false表示滚动
@@ -447,11 +448,10 @@ var floor = {
 		var that = this;
 		$(window).scroll(function(){
 			var t = $(this).scrollTop();
-			if (t >= 3230 ) {
+			if (t >= 3230 && t <= 8500) {
 				that.box.fadeIn(200);
-				that.list.eq(0).addClass("current").find("span").show();
 			}else{
-				that.box.fadeOut(200)
+				that.box.fadeOut(200);
 			};
 			if (this.flag) {
 				return;
@@ -459,18 +459,20 @@ var floor = {
 			//楼层跟随   i 下标
 			for (var i = 0; i < that.item.length; i++) {
 				//获取当前楼层上边界距离顶部的距离
-				var top = that.item.eq(i).offset().top;
+				var top0 = that.item.eq(i).offset().top;
 				//获取当前楼层的下边界距离顶部的距离
 				var bottom = that.item.eq(i).height() + t;
 				//实现楼层跟随
-				if ( (t + $(window).height()/2) > top || (t + $(window).height()/2) < bottom ) {
-					that.list.addClass("current").find("span").show().parent().siblings().find("a").removeClass("current").find("span").hide();
+				if ( t < top0 && (t + $(window).height()/2) > top0 || (t + $(window).height()/2) > bottom) {
+					that.list.eq(i).find("a").addClass("current").find("span").show()
+					that.list.eq(i).siblings().find("a").removeClass("current").find("span").hide();
+					break;
 				}
 			}
 		});
 	},
 	hover:function(){
-		this.list.hover(function(){
+		this.listItem.hover(function(){
 			$(this).addClass("current").find("span").show();
 		},function(){
 			$(this).removeClass("current").find("span").hide();
@@ -478,7 +480,7 @@ var floor = {
 	},
 	click:function(){
 		var that = this;
-		this.list.click(function(){
+		this.listItem.click(function(){
 			that.flag = true;
 			var index = $(this).parent().index();
 			$("html,body").stop(true).animate({
@@ -492,5 +494,23 @@ var floor = {
 	}
 }
 floor.init();
+
+//搜索框获焦失焦事件
+$("#search .searchTxt").focus(function(){
+	//改变搜索框的边框和value值
+	$(this).val("")
+}).blur(function(){
+	//重置搜索框的边框和value值
+	$(this).val("请输入商品名称,支持拼音搜索");
+})
+
+$(window).scroll(function(){
+	if ($(this).scrollTop() > 1850 && $(this).scrollTop() < 8500) {
+		$("#search").stop(true).slideDown(50);
+	}else{
+		$("#search").stop(true).slideUp(50);
+	}
 	
+})
+
 })

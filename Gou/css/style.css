@@ -173,7 +173,7 @@ body{min-height: 1500px;}
 		background: url(../img/icon_index.png) no-repeat -44px 0px;
 	}
 /*页面logo、搜索*/
-	#logo .biglogo{
+	.biglogo{
 		display: block;
 	}
 	#logo .search{
@@ -1112,10 +1112,35 @@ body{min-height: 1500px;}
 	}
 
 
+
+.botCol{ width:100%; background: #fafafa; overflow: hidden; border-bottom: 1px solid #ddd; margin-bottom:30px;}
+.botCol .colist{ width: 198px; overflow: hidden; float:left;}
+.botCol .colist .iconco{ width: 41px; height: 41px; margin:15px auto 10px;}
+.botCol .colist ul{ overflow: hidden; padding:0 25px;}
+.botCol .colist ul li{ float: left; width:60px; line-height: 24px; margin-left:12px; font-family: "microsoft yahei";}
+.sup-btn{width:80px; height:22px; padding-right: 10px; line-height: 22px;  margin: 15px auto 15px; text-align: center; background: url(../img/icon_index.png) no-repeat -59px -307px;  }
+.sup-btn a{color: #fff; font-family: "microsoft yahei"; font-size: 14px;}
+.sup-btn a:hover{color: #fff;}
+.botCol .colist .iconco{background: url(../img/icon_index.png) no-repeat;}
+.botCol .colist .fotbg1{ background-position: -59px -244px;}
+.botCol .colist .fotbg2{ background-position: -110px -244px;}
+.botCol .colist .fotbg3{ background-position: -161px -244px;}
+.botCol .colist .fotbg4{ background-position: -212px -244px;}
+.botCol .colist .fotbg5{ background-position: -263px -244px;}
+.botCol .colist .fotbg6{ background-position: -315px -244px;}
+
 /*页面底部*/
 	
+
+
+
 	/*footer*/
 	#footer{background: #fff;}
+	#footer .footBG{
+		width: 100%;
+		height: 380px;
+		background: url(../img/footBg.jpg) no-repeat;
+	}
 	#footer .article {
 		overflow: hidden;
 	}
@@ -1293,4 +1318,55 @@ body{min-height: 1500px;}
 		height: 60px;
 		width: 112px;
 		margin: 0 3px;
+	}
+	#search{
+		background: #444851;
+		height: 40px;
+		width: 100%;
+		position: fixed;
+		top: 0;
+		display: none;
+	}
+	#search .logo{
+		display: block;
+    	float: left;
+    	width: 260px;
+    	height: 40px;
+    	margin-left: 40px;
+    	background: url(../img/logo.png) no-repeat scroll center center;
+	}
+	#search .searching {
+		padding-top: 7px;
+		margin-right: 160px;
+	}
+	#search .searching .searchTxt{
+		width: 380px;
+		height: 26px;
+		line-height: 26px;
+		padding:0 10px;
+		font-size: 12px;
+		color: #999;
+	}
+	#search .searching .searchBtn{
+		display: block;
+		width: 90px;
+		height: 26px;
+		line-height: 26px;
+		background: #cc1d00;
+		text-align: center;
+		color: #fff;
+		font-size: 14px;
+		cursor: pointer;
+	}
+	#search .iphone{
+		line-height: 40px;
+		color: #bbb;
+	}
+	#search .iphone i{
+		display: block;
+		width: 14px;
+		height: 20px;
+		float: left;
+		margin: 9px 4px 0 0;
+		background: url(../img/icon_index.png) no-repeat scroll -25px -20px;
 	}
