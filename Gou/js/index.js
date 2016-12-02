@@ -1,6 +1,26 @@
 $(function(){
 
-
+// 拖拽的小熊
+$("#bearCart").mousedown(function(e){
+	var that = $(this);
+	e.preventDefault();
+	var tleft = e.offsetX;
+	var ttop = e.offsetY;
+	$(document).mousemove(function(e){
+		var l = e.clientX - tleft;
+		var t = e.clientY - ttop,
+		l = l < 0 ? 0 : (l >= $(window).width() - that.width() ? $(window).width() - that.width() : l);
+		t = t < 0 ? 0 : (t >= $(window).height() - that.height() ? $(window).height() - that.height() : t);
+		that.css({
+			left:l,
+			top:t
+		});
+	});
+});
+//鼠标抬起时，模态框取消拖拽
+$("#bearCart").mouseup(function(){
+	$(document).off();
+});
 //顶部点击“关闭”消失
 $(".adTopHide").click(function(){
 	$("#adTop").hide();
@@ -349,8 +369,128 @@ var like = {
 }
 like.init();
 
+// 楼层
 
+// 小轮播图
+var floorBanner = {
+	banner:$("#floor .floorL .floorB"),
+	box:$("#floor .floorL .floorB > ul"),
+	item:$("#floor .floorL .floorB > ul > li"),
+	img:$("#floor .floorL .floorB > ul > li > a"),
+	arrowL:$("#floor .floorL .fArrowl"),
+	arrowR:$("#floor .floorL .fArrowr"),
+	timer:null,
+	index:0,
+	init:function(){
+		this.autoPlay();
+		this.click();
+		this.hover();
+	},
+	autoPlay:function(){
+		var that = this;
+		this.timer = setInterval(function(){
+			that.index++;
+			that.change();
+		},3000);
+	},
+	click:function(){
+		var that = this;
+		this.arrowL.click(function(){
+			that.index--;
+			that.change();
+		})
+		this.arrowR.click(function(){
+			that.index++;
+			that.change();
+		})
+	},
+	hover:function(){
+		var that = this;
+		$("#floor .floorL").hover(function(){
+			clearInterval(that.timer);
+		},function(){
+			that.autoPlay();
+		})
+	},
+	change:function(){
+		if (this.index < 0 ) {
+			this.index = this.item.length -1;
+		}
+		if (this.index >= this.item.length ) {
+			this.index = 1;
+			this.box.css({
+				marginLeft:0
+			})
+		}
+		this.box.animate({
+			marginLeft:- this.index * this.img.width()
+		})
+	}
+}
+floorBanner.init();
 
+//楼层
+//3480 - 250 = 3230 楼层出现
 
+var floor = {
+	box:$("#floor .floors"),
+	list:$("#floor .floors > ul > li a"),
+	item:$("#floor .floor"),
+	backTop:$("#floor .floors .floors0"),
+	flag:false, //定义开关，true表示点击，false表示滚动
+	init:function(){
+		this.scroll();
+		this.hover();
+		this.click();
+	},
+	scroll:function(){
+		var that = this;
+		$(window).scroll(function(){
+			var t = $(this).scrollTop();
+			if (t >= 3230 ) {
+				that.box.fadeIn(200);
+				that.list.eq(0).addClass("current").find("span").show();
+			}else{
+				that.box.fadeOut(200)
+			};
+			if (this.flag) {
+				return;
+			};
+			//楼层跟随   i 下标
+			for (var i = 0; i < that.item.length; i++) {
+				//获取当前楼层上边界距离顶部的距离
+				var top = that.item.eq(i).offset().top;
+				//获取当前楼层的下边界距离顶部的距离
+				var bottom = that.item.eq(i).height() + t;
+				//实现楼层跟随
+				if ( (t + $(window).height()/2) > top || (t + $(window).height()/2) < bottom ) {
+					that.list.addClass("current").find("span").show().parent().siblings().find("a").removeClass("current").find("span").hide();
+				}
+			}
+		});
+	},
+	hover:function(){
+		this.list.hover(function(){
+			$(this).addClass("current").find("span").show();
+		},function(){
+			$(this).removeClass("current").find("span").hide();
+		})
+	},
+	click:function(){
+		var that = this;
+		this.list.click(function(){
+			that.flag = true;
+			var index = $(this).parent().index();
+			$("html,body").stop(true).animate({
+				scrollTop:that.item.eq(index).offset().top
+			});
+		})
+		this.backTop.click(function(){
+			that.flag = true;
+			$("html,body").scrollTop(0);
+		})
+	}
+}
+floor.init();
 	
 })
