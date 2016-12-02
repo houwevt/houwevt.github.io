@@ -89,7 +89,7 @@ $(".phone").hover(function(){
 })
 
 //搜索框获焦失焦事件
-$("#logo.searchTxt").focus(function(){
+$("#logo .searchTxt").focus(function(){
 	//改变搜索框的边框和value值
 	$(this).css({
 		"border":"2px solid #cc1d00",
