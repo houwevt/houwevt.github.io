@@ -1,121 +1,120 @@
 $(function(){
-
-// 拖拽的小熊
-$("#bearCart").mousedown(function(e){
-	var that = $(this);
-	e.preventDefault();
-	var tleft = e.offsetX;
-	var ttop = e.offsetY;
-	$(document).mousemove(function(e){
-		var l = e.clientX - tleft;
-		var t = e.clientY - ttop,
-		l = l < 0 ? 0 : (l >= $(window).width() - that.width() ? $(window).width() - that.width() : l);
-		t = t < 0 ? 0 : (t >= $(window).height() - that.height() ? $(window).height() - that.height() : t);
-		that.css({
-			left:l,
-			top:t
+//页面头部
+function headLoad(){
+	// 拖拽的小熊
+	$("#bearCart").mousedown(function(e){
+		var that = $(this);
+		e.preventDefault();
+		var tleft = e.offsetX;
+		var ttop = e.offsetY;
+		$(document).mousemove(function(e){
+			var l = e.clientX - tleft;
+			var t = e.clientY - ttop,
+			l = l < 0 ? 0 : (l >= $(window).width() - that.width() ? $(window).width() - that.width() : l);
+			t = t < 0 ? 0 : (t >= $(window).height() - that.height() ? $(window).height() - that.height() : t);
+			that.css({
+				left:l,
+				top:t
+			});
 		});
 	});
-});
-//鼠标抬起时，模态框取消拖拽
-$("#bearCart").mouseup(function(){
-	$(document).off();
-});
-//顶部点击“关闭”消失
-$(".adTopHide").click(function(){
-	$("#adTop").hide();
-})
-
-//页面头部
-//点击图标跳转首页
-$(".headIndex").click(function(){
-	window.location = "index.html";
-})
-
-var timer0;
-//hover 我的麦乐购 出现二级菜单
-$(".myGou").hover(function(){
-	clearTimeout(timer0);
-	//出现二级菜单
-	$(".myGouCon").stop(true).slideDown(200);
-	//改变背景和边框
-	$(".myGou").css({
-		"background":"#fff",
-		"border":"1px solid #ccc",
+	//鼠标抬起时，模态框取消拖拽
+	$("#bearCart").mouseup(function(){
+		$(document).off();
 	});
-	//改变下拉的箭头
-	$(".myGouIcon").css({
-		"background":"url(img/icon_index.png) no-repeat scroll -69px 0px",
-		"top":"8px"
-	});
-},function(){
-	//隐藏二级菜单
-	$(".myGouCon").stop(true).slideUp(200);
-	timer0 = setTimeout(function(){
+	//顶部点击“关闭”消失
+	$(".adTopHide").click(function(){
+		$("#adTop").hide();
+	})
+	//hover 我的麦乐购 出现二级菜单
+	var timer0;
+	$(".myGou").hover(function(){
+		clearTimeout(timer0);
+		//出现二级菜单
+		$(".myGouCon").stop(true).slideDown(200);
 		//改变背景和边框
 		$(".myGou").css({
+			"background":"#fff",
+			"border":"1px solid #ccc",
+		});
+		//改变下拉的箭头
+		$(".myGouIcon").css({
+			"background":"url(img/icon_index.png) no-repeat scroll -69px 0px",
+			"top":"8px"
+		});
+	},function(){
+		//隐藏二级菜单
+		$(".myGouCon").stop(true).slideUp(200);
+
+		//改变背景和边框
+		timer0 = setTimeout(function(){$(".myGou").css({
 			"background":"none",
 			"border":"1px solid #f5f5f5",
 			"border-bottom":"none"
+		})},200);
+		//改变下拉的箭头
+		$(".myGouIcon").css({
+			"background":"url(img/icon_index.png) no-repeat scroll -89px -8px",
+			"top": "14px"
 		});
-	},200)
-	//改变下拉的箭头
-	$(".myGouIcon").css({
-		"background":"url(img/icon_index.png) no-repeat scroll -89px -8px",
-		"top": "14px"
-	});
-})
-//hover 手机麦乐购 
-$(".phone").hover(function(){
-	clearTimeout(timer0);
-	//出现二维码图片
-	$(".phoneImg > img").stop(true).slideDown(200);
-	//改变背景和边框
-	$(".phone").css({
-		"background":"#fff",
-		"border":"1px solid #ccc",
-		"border-bottom":"none"
-	});
-},function(){
-	//隐藏二维码图片
-	$(".phoneImg > img").stop(true).slideUp(200);
-	//改变背景和边框
-	timer0 = setTimeout(function(){
+	})
+	//hover 手机麦乐购 
+	$(".phone").hover(function(){
+		clearTimeout(timer0);
+		//出现二维码图片
+		$(".phoneImg > img").stop(true).slideDown(200);
+		//改变背景和边框
 		$(".phone").css({
-			"background":"none",
-			"border":"1px solid #f5f5f5",
+			"background":"#fff",
+			"border":"1px solid #ccc",
+			"border-bottom":"none"
 		});
-	},200)
-})
-
-//搜索框获焦失焦事件
-$("#logo .searchTxt").focus(function(){
-	//改变搜索框的边框和value值
-	$(this).css({
-		"border":"2px solid #cc1d00",
-		"border-right":0
-	}).val("")
-}).blur(function(){
-	//重置搜索框的边框和value值
-	$(this).css({
-		"border":"2px solid #eee",
-		"border-right":0
-	}).val("请输入商品名称,支持拼音搜索");
-})
-//商品列表的hover，出现详细列表
-$(".listDetail").hover(function(){
-	$(this).css({"background":"#a90000"}).find(".goodDetail").show(200).animate({"padding-left": "20px","opacity":1},100);
+	},function(){
+		//隐藏二维码图片
+		$(".phoneImg > img").stop(true).slideUp(200);
+		//改变背景和边框
+		timer0 = setTimeout(function(){
+			$(".phone").css({
+				"background":"none",
+				"border":"1px solid #f5f5f5",
+			});
+		},200)
+	})
 	
-},function(){
-	$(this).css({"background":"#cb3e25"}).find(".goodDetail").hide().animate({"padding-left": "10px","opacity":0},100);;
+	//搜索框获焦失焦事件
+	$("#logo .searchTxt").focus(function(){
+		//改变搜索框的边框和value值
+		$(this).css({
+			"border":"2px solid #cc1d00",
+			"border-right":0
+		}).val("")
+	}).blur(function(){
+		//重置搜索框的边框和value值
+		$(this).css({
+			"border":"2px solid #eee",
+			"border-right":0
+		}).val("请输入商品名称,支持拼音搜索");
+	})
+	//商品列表的hover，出现详细列表
+	$("#nav .goods .goodList").show();
+	$(".listDetail").hover(function(){
+		$(this).css({"background":"#a90000"}).find(".goodDetail").show().stop(true).delay(200).animate({"padding-left": "20px","opacity":1},100);
+		
+	},function(){
+		$(this).css({"background":"#cb3e25"}).find(".goodDetail").hide().stop(true).delay(100).animate({"padding-left": "10px","opacity":0},100);;
+	})
+	
+	//鼠标滑动导航，下标跟随
+	$(".navItem").hover(function(){
+		$(".navBottom").width($(this).find("a").width()).stop(true).animate({"left":$(this).position().left + 12},150)
+	},function(){
+		$(".navBottom").width("32px").stop(true).animate({"left":"12px"},150)
+	})
+}
+$("#header").load("html/head.html",function(){
+	headLoad();
 })
 
-//鼠标滑动导航，下标跟随
-$(".navItem").hover(function(){
-	$(".navBottom").width($(this).find("a").width()).stop(true).animate({"left":$(this).position().left + 12},150)
-},function(){
-	$(".navBottom").width("32px").stop(true).animate({"left":"12px"},150)
-})
 
 
 //生成一个轮播图
@@ -369,7 +368,6 @@ var like = {
 }
 like.init();
 
-// 楼层
 
 // 小轮播图
 var floorBanner = {
@@ -414,15 +412,18 @@ var floorBanner = {
 	},
 	change:function(){
 		if (this.index < 0 ) {
-			this.index = this.item.length -1;
+			this.index = 1;
+			this.box.css({
+				marginLeft:- 2 * this.img.width()
+			})
 		}
-		if (this.index >= this.item.length ) {
+		if (this.index >= 3 ) {
 			this.index = 1;
 			this.box.css({
 				marginLeft:0
 			})
 		}
-		this.box.animate({
+		this.box.stop(true).animate({
 			marginLeft:- this.index * this.img.width()
 		})
 	}
@@ -439,6 +440,7 @@ var floor = {
 	item:$("#floor .floor"),
 	backTop:$("#floor .floors .floors0"),
 	flag:false, //定义开关，true表示点击，false表示滚动
+	move:false,
 	init:function(){
 		this.scroll();
 		this.hover();
@@ -453,7 +455,7 @@ var floor = {
 			}else{
 				that.box.fadeOut(200);
 			};
-			if (this.flag) {
+			if (that.flag) {
 				return;
 			};
 			//楼层跟随   i 下标
@@ -461,10 +463,10 @@ var floor = {
 				//获取当前楼层上边界距离顶部的距离
 				var top0 = that.item.eq(i).offset().top;
 				//获取当前楼层的下边界距离顶部的距离
-				var bottom = that.item.eq(i).height() + t;
+				var bottom = that.item.eq(i).height() + top0;
 				//实现楼层跟随
-				if ( t < top0 && (t + $(window).height()/2) > top0 || (t + $(window).height()/2) > bottom) {
-					that.list.eq(i).find("a").addClass("current").find("span").show()
+				if ( t < top0 && (t + $(window).height()/2) > top0 || (t + $(window).height()/2) < bottom ) {
+					that.list.eq(i).find("a").addClass("current").find("span").show();
 					that.list.eq(i).siblings().find("a").removeClass("current").find("span").hide();
 					break;
 				}
@@ -472,23 +474,35 @@ var floor = {
 		});
 	},
 	hover:function(){
-		this.listItem.hover(function(){
-			$(this).addClass("current").find("span").show();
+		var that =this;
+		this.list.hover(function(){
+			if ($(this).find("a").is(".current")) {
+				that.move = true;
+				return;
+			}
+			$(this).find("a").addClass("current").find("span").show();
 		},function(){
-			$(this).removeClass("current").find("span").hide();
+			if (that.move) {
+				that.move = false;
+				return;
+			}
+			$(this).find("a").removeClass("current").find("span").hide();
 		})
 	},
 	click:function(){
 		var that = this;
 		this.listItem.click(function(){
 			that.flag = true;
+			$(this).addClass("current").find("span").show()
+			$(this).parent().siblings().find("a").removeClass("current").find("span").hide();
 			var index = $(this).parent().index();
 			$("html,body").stop(true).animate({
-				scrollTop:that.item.eq(index).offset().top
+				scrollTop:that.item.eq(index).offset().top - 50
+			},function(){
+				that.flag = false;
 			});
 		})
 		this.backTop.click(function(){
-			that.flag = true;
 			$("html,body").scrollTop(0);
 		})
 	}
@@ -513,4 +527,5 @@ $(window).scroll(function(){
 	
 })
 
+$("#footer0").load("html/foot.html")
 })

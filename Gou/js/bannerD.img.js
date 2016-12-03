@@ -46,8 +46,11 @@ BannerD.prototype = {
 		})
 	},
 	change:function(){
+		var that = this;
 		this.imgs.eq(this.now).stop(true).fadeOut();
-		this.imgs.eq(this.next).stop(true).fadeIn();
+		this.imgs.eq(this.next).stop(true).fadeIn(function(){
+			that.flag = false;
+		});
 		$("#banner").removeClass("bannerBg" + this.now).addClass("bannerBg" + this.next);
 		this.btn.eq(this.next).addClass("current").siblings().removeClass("current");
 		this.now = this.next;

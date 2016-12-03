@@ -9,10 +9,30 @@ body{min-height: 1500px;}
 		display: block;
 		position: fixed;
 		top: 0;
-		right: 0;
+		left: 0;
 		z-index: 10;
 		opacity: 0.9;
 		cursor: move;
+	}
+/*侧边栏*/
+	#right {
+		position: fixed;
+		top: 0;
+		right: 0;
+		width: 35px;
+		height: 100%;
+		background: #444851;
+	}
+	#right .rLogin{
+		position: relative;
+		margin-top: 10px;
+		float: left;
+	}
+	#right .rLogin a{
+		display: block;
+		width: 30px;
+		height: 35px;
+		background: url(../img/icon_index.png) no-repeat -2px -90px;;
 	}
 /*顶部广告*/
 	#adTop{
@@ -119,6 +139,7 @@ body{min-height: 1500px;}
 	    background:#fff;
 		border:1px solid #ccc;
 		border-top:none;
+		z-index: 10;
 	}
 	#head .headRight .myGou .myGouCon > li{
 		width: 83px;
@@ -220,6 +241,7 @@ body{min-height: 1500px;}
 		background: #cb351a;
 		text-align: center;
 		color: #fff;
+
 	}
 	#nav .goods .goodList{
 		position: absolute;
@@ -228,6 +250,7 @@ body{min-height: 1500px;}
 		min-height: 480px;
 		background: #cb3e25;
 		text-align: left;
+		display: none;
 	}
 	#nav .goods .goodList .listDetail{
 		width: 180px;
@@ -943,7 +966,7 @@ body{min-height: 1500px;}
 		width: 35px;
 		height: 34px;
 		line-height: 16px;
-		padding-top: 3px;
+		margin-bottom: 3px;
 		color: #e8a79c;
 		background: url(../img/icon_index.png) no-repeat;
 		border-bottom: 1px solid #ccc;
@@ -972,7 +995,6 @@ body{min-height: 1500px;}
 	}
 	#floor .floors ul li span{
 		display: none;
-		position: relative;
 	}
 	#floor .floors ul li a.current{
 		background: none;
@@ -1110,25 +1132,27 @@ body{min-height: 1500px;}
 		margin: 0 10px 10px 0;
 		border:1px solid #eee;
 	}
-
-
-
-.botCol{ width:100%; background: #fafafa; overflow: hidden; border-bottom: 1px solid #ddd; margin-bottom:30px;}
-.botCol .colist{ width: 198px; overflow: hidden; float:left;}
-.botCol .colist .iconco{ width: 41px; height: 41px; margin:15px auto 10px;}
-.botCol .colist ul{ overflow: hidden; padding:0 25px;}
-.botCol .colist ul li{ float: left; width:60px; line-height: 24px; margin-left:12px; font-family: "microsoft yahei";}
-.sup-btn{width:80px; height:22px; padding-right: 10px; line-height: 22px;  margin: 15px auto 15px; text-align: center; background: url(../img/icon_index.png) no-repeat -59px -307px;  }
-.sup-btn a{color: #fff; font-family: "microsoft yahei"; font-size: 14px;}
-.sup-btn a:hover{color: #fff;}
-.botCol .colist .iconco{background: url(../img/icon_index.png) no-repeat;}
-.botCol .colist .fotbg1{ background-position: -59px -244px;}
-.botCol .colist .fotbg2{ background-position: -110px -244px;}
-.botCol .colist .fotbg3{ background-position: -161px -244px;}
-.botCol .colist .fotbg4{ background-position: -212px -244px;}
-.botCol .colist .fotbg5{ background-position: -263px -244px;}
-.botCol .colist .fotbg6{ background-position: -315px -244px;}
-
+/*底*/
+	#foot .botCol{ width:100%; background: #fafafa; overflow: hidden; border-bottom: 1px solid #ddd; margin-bottom:30px;}
+	#foot .botCol .colist{ width: 198px; overflow: hidden; float:left;}
+	#foot .botCol .colist .iconco{ width: 41px; height: 41px; margin:15px auto 10px;}
+	#foot .botCol .colist ul{ overflow: hidden; padding:0 25px;}
+	#foot .botCol .colist ul li{ float: left; width:60px; line-height: 24px; margin-left:12px; font-family: "microsoft yahei";}
+	#foot .sup-btn{width:80px; height:22px; padding-right: 10px; line-height: 22px;  margin: 15px auto 15px; text-align: center; background: url(../img/icon_index.png) no-repeat -59px -307px;  }
+	#foot .sup-btn a{color: #fff; font-family: "microsoft yahei"; font-size: 14px;}
+	#foot .sup-btn a:hover{color: #fff;}
+	#foot .botCol .colist .iconco{background: url(../img/icon_index.png) no-repeat;}
+	#foot .botCol .colist .fotbg1{ background-position: -59px -244px;}
+	#foot .botCol .colist .fotbg2{ background-position: -110px -244px;}
+	#foot .botCol .colist .fotbg3{ background-position: -161px -244px;}
+	#foot .botCol .colist .fotbg4{ background-position: -212px -244px;}
+	#foot .botCol .colist .fotbg5{ background-position: -263px -244px;}
+	#foot .botCol .colist .fotbg6{ background-position: -315px -244px;}
+	#foot .footBG{
+		width: 100%;
+		height: 380px;
+		background: url(../img/footBg.jpg) no-repeat;
+	}
 /*页面底部*/
 	
 
@@ -1136,11 +1160,7 @@ body{min-height: 1500px;}
 
 	/*footer*/
 	#footer{background: #fff;}
-	#footer .footBG{
-		width: 100%;
-		height: 380px;
-		background: url(../img/footBg.jpg) no-repeat;
-	}
+	
 	#footer .article {
 		overflow: hidden;
 	}
