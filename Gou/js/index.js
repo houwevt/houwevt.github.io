@@ -18,6 +18,16 @@ function headLoad(){
 			});
 		});
 	});
+	//侧边栏
+	$("#right .rServ").hover(function(){
+		$(this).find("img").stop(true).animate({
+			left:"-225px"
+		},200)
+	},function(){
+		$(this).find("img").stop(true).animate({
+			left:"225px"
+		},200)
+	})
 	//鼠标抬起时，模态框取消拖拽
 	$("#bearCart").mouseup(function(){
 		$(document).off();
@@ -136,6 +146,10 @@ function remainTime(){
 	var hours0 = parseInt(hours/10);
 	//小时的个位
 	var hours1 = hours%10;
+	if (hours >= 100) {
+		hours0 = 9;
+		hours1 = 9;
+	}
 	//分钟
 	var minutes = parseInt((end_time - now_time) / 1000 / 60 % 60);
 	//分钟的十位
@@ -200,7 +214,7 @@ var rush = {
 		this.timer = setInterval(function(){
 			that.next++;
 			that.change();
-		},2500)
+		},3700)
 	},
 	click:function(){
 		var that = this;
@@ -260,7 +274,7 @@ var rush = {
 		};
 		this.conItem.stop(true).animate({
 			marginLeft:-this.next * this.box.width()
-		});
+		},1200,"linear");
 		this.number.find("span").html(this.next + 1);
 	}
 
