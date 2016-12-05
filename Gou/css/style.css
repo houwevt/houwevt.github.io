@@ -130,7 +130,7 @@ body{min-height: 1500px;}
 	#rushBuy .rushTitle .timer .time > b {
 		font-size: 20px;
 	}
-	#rushBuy .rushTitle .rushMore{font-family: SimSun;}
+	#rushBuy .rushTitle .rushMore{font-family: SimSun;cursor: pointer;}
 
 	/*整点抢购选项卡*/
 	#rushBuy .rushContainer .rushNavItem {

@@ -20,14 +20,30 @@ function headLoad(){
 	});
 	//侧边栏
 	$("#right .rServ").hover(function(){
-		$(this).find("img").stop(true).animate({
-			left:"-225px"
-		},200)
+		$(this).find("a").stop(true).animate({
+			left:-225
+		},300);
 	},function(){
-		$(this).find("img").stop(true).animate({
-			left:"225px"
-		},200)
+		$(this).find("a").stop(true).delay(200).animate({
+			left:0
+		},200);
 	})
+	$("#right .rbottom li").hover(function(){
+		$(this).find("span,.dimensionImg").stop(true).animate({
+			left:-80
+		},300);
+		$(this).find(".dimensionImg").stop(true).animate({
+			left:-240
+		},300);
+	},function(){
+		$(this).find("span").stop(true).animate({
+			left:0
+		},300);
+		$(this).find(".dimensionImg").stop(true).animate({
+			left:0
+		},300)
+	})
+	
 	//鼠标抬起时，模态框取消拖拽
 	$("#bearCart").mouseup(function(){
 		$(document).off();
@@ -452,7 +468,7 @@ var floor = {
 	list:$("#floor .floors > ul > li"),
 	listItem:$("#floor .floors > ul > li a"),
 	item:$("#floor .floor"),
-	backTop:$("#floor .floors .floors0"),
+	backTop:$("#floor .floors .floors0,#right ul a .icon5"),
 	flag:false, //定义开关，true表示点击，false表示滚动
 	move:false,
 	init:function(){
