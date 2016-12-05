@@ -33,6 +33,40 @@ b,th{font-weight:normal;}/*消除加粗*/
 	width: 1190px;
 	margin: 0 auto;
 }
+
+/*登录注册*/
+/*登录*/
+.margin0{
+	width: 990px;
+	margin: 0 auto;
+}
+#loginCon .Lhead{
+	padding:10px 0;
+}
+#loginCon .Lhead .logo{
+	display: block;
+	height: 83px;
+}
+#loginCon .Lhead .ADright{
+	margin-top: 38px;
+	height: 83px;
+}
+#loginCon .Lbody{
+	min-height: 600px;
+}
+#loginCon .Lbody .ADleft{
+	margin-left: 20px;
+}
+#loginCon .Lbody .box{
+	position: relative;
+	width: 290px;
+	min-height:310px;
+	border:1px solid #ccc;
+	border-top: #ea3918 2px solid;
+	padding: 20px 40px;
+}
+
+
 /*拖拽的小熊*/
 	#bearCart{
 		display: block;
@@ -458,7 +492,6 @@ b,th{font-weight:normal;}/*消除加粗*/
 		background: #cb351a;
 		text-align: center;
 		color: #fff;
-
 	}
 	#nav .goods .goodList{
 		position: absolute;
@@ -563,8 +596,8 @@ b,th{font-weight:normal;}/*消除加粗*/
 	#nav .nav .navContent .navBottom{
 		position: absolute;
 		top: 31px;
-		left: 12px;
-		width: 32px;
+		left: 0px;
+		width: 0px;
 		height: 3px;
 		text-align: center;
 		border-bottom: 2px solid #c8391d;

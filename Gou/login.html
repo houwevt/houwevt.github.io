@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登录-麦乐购</title>
+	<link rel="shortcut icon" href="img/littleLogo.png">
+	<link rel="stylesheet" href="css/public.css">
+	<link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+	<div id="loginCon">
+		<div class="margin0">
+			<div class="Lhead clear">
+				<a href="https://houwevt.github.io/Gou/" class="logo fl">
+					<img src="img/logo.jpg" alt="麦乐购" title="麦乐购">
+				</a>
+				<div class="ADright fr"><img src="img/ADright.png" alt=""></div>
+			</div>
+			<div class="Lbody clear">
+				<div class="ADleft fl"><img src="img/ADleft.png" alt=""></div>
+				<div class="box fl">
+					<div class="login clear">
+						<h3>登录</h3>
+						<a href="register.html">免费快速注册</a>
+						<form id="loginForm" name="loginForm" method="post">
+							<ul>
+								<li class="liLab">
+									<label class="user"></label>
+									<!--    value="手机号码/邮箱/用户名"-->
+									<input type="text" name="username" id="username" placeholder="手机号码/邮箱/用户名" title="手机号码/邮箱/用户名" value="">
+								</li>
+								<li class="liLab">
+									<label class="pass"></label>
+									<input type="password" name="psw" id="psw" value="" placeholder="密码" title="密码" maxlength="20">
+								</li>
+								<li class="code">
+									<input type="text" value="" placeholder="验证码" title="验证码" maxlength="4" name="vcode" id="code">
+									<img src="http://www.gou.com/verifyImg.aspx?r=0.1111111111111111" alt="" title="图片验证码" alt="图片验证码" class="changeImg">
+									<a href="javascript:;" class="change">换一张</a>
+								</li>
+								<li>
+									<a href="#" style="margin-left:225px;">忘记密码？</a>
+								</li>
+								<li class="enter">
+									<input id="userLogin_A" type="submit" value="登录" class="btn">
+								</li>
+								<li>
+									<p class="otherReg">
+										<span>使用其它帐号登录：</span>
+										<a class="qq" title="使用QQ账号登录"></a>
+										<a class="aliPay" title="使用支付宝账号登录"></a>
+										<a class="ws360" href="#" title="360联盟账号登录"></a>
+										<a class="sina" title="新浪微博登录"></a>
+									</p>
+								</li>
+							</ul>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<div class="about">
+			<p class="abLink">
+				<a href="#">关于麦乐购</a><span>|</span>
+				<a href="#">保税店专区</a><span>|</span>
+				<a href="#">服务条款</a><span>|</span>
+				<a href="#">商户合作</a><span>|</span>
+				<a href="#">O2O合作</a><span>|</span>
+				<a href="#">联系我们</a><span>|</span>
+				<a href="#">友情链接</a><span>|</span>
+				<a href="#">诚聘英才</a><span>|</span>
+				<a href="#">手机麦乐购</a><span>|</span>
+				<a href="#">意见建议</a><span>|</span>
+				<a href="#">媒体报道</a>
+			</p>
+			<p style=" margin-top:10px;">
+				<a style="color:black" href="#"> <img src="http://res.m6go.com/content/dgH/image/gonganbeian.png">京公网安备：11010102000812号</a> | 中华保险保单号：011644014602050D000001 | 中华人民共和国出版物经营许可证编号：150023 | 广电制作经营许可证：(京)字第06356号</p>
+
+			<p>网络文化经营许可证：京网文(2016)4048-509号 | 食品经营许可证编号：JY11101070034785 | 食品卫生许可证编号：110101_JX0020 | 互联网药品信息服务证书编号：(京)-2016-0095</p>
+
+			<p>Copyright 2006 - 2016 北京麦乐购科技有限公司版权所有 | 经营许可证编号：京ICP证150027号 | 营业执照：911101010672694772 | 京ICP备14022296号 | 中国服务热线：400-666-6600</p>
+		</div>
+	</div>
+	<script src="js/jquery.1.11.3.js"></script>
+	<script src="js/login.js"></script>
+	
+</body>
+</html>

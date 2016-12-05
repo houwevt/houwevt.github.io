@@ -1,5 +1,13 @@
 @charset "utf-8";
 body{min-height: 1500px;}
+#header #nav .goods .goodList{
+	display: block;
+}
+#nav .nav .navContent .navBottom{
+	left: 12px;
+	width: 32px;
+}
+
 /*轮播图*/
 	.bannerBg0{background: rgb(246,183,10);}
 	.bannerBg1{background: rgb(252,116,162);}
