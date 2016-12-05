@@ -5,7 +5,7 @@
 	<title>注册-麦乐购</title>
 	<link rel="shortcut icon" href="img/littleLogo.png">
 	<link rel="stylesheet" href="css/public.css">
-	<link rel="stylesheet" href="css/login.css">
+	<link rel="stylesheet" href="css/register.css">
 </head>
 <body>
 	<div id="loginCon">
@@ -20,7 +20,41 @@
 				<div class="ADleft fl"><img src="img/ADleft.png" alt=""></div>
 				<div class="box fl">
 					<div class="reg">
-						
+						<div class="regT">
+							<h3>新用户注册</h3>
+							<span>已有麦乐购帐号，<a href="login.html">直接登录</a></span>
+						</div>
+						<form action="" method="post" id="regB">
+							<ul>
+								<li class="phoneCon">
+									<input type="text" placeholder="请输入手机号" id="phone">
+									<span></span>
+								</li>
+								<li class="pswCon">
+									<input type="text" placeholder="请输入密码" id="psw">
+									<span></span>
+								</li>
+								<li class="psw2Con">
+									<input type="text" placeholder="请再次输入密码" id="psw2">
+									<span></span>
+								</li>
+								<li class="codeCon">
+									<input type="text" value="" placeholder="请输入验证码" title="请输入验证码" maxlength="4" name="vcode" id="code">
+									<img src="http://www.gou.com/verifyImg.aspx?r=0.1111111111111111" alt="" title="图片验证码" alt="图片验证码" class="changeImg">
+									<a href="javascript:;" class="change">换一张</a>
+									<span></span>
+								</li>
+								<li class="mesCon clear">
+									<input type="text" placeholder="短信验证码" id="mes">
+									<span>获取短信验证码</span>
+								</li>
+								<li class="agree clear">
+									<input type="checkbox" name="" class="check" checked>
+									<span>已阅读并同意<a href="#">《麦乐购注册协议及交易条款》</a></span>
+									<input type="submit" value="立即注册" class="regNow fl">
+								</li>
+							</ul>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -50,7 +84,7 @@
 		</div>
 	</div>
 	<script src="js/jquery.1.11.3.js"></script>
-	<script src="js/login.js"></script>
+	<script src="js/register.js"></script>
 	
 </body>
 </html>

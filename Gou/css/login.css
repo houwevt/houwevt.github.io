@@ -45,6 +45,9 @@
 #loginCon .box .login .code{
 	margin-top: 25px;
 }
+#loginCon a:hover{
+	color: #82b4ff;
+}
 #loginCon .box .login .code img{
 	margin-right: 10px;
 }

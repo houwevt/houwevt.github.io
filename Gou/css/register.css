@@ -1,0 +1,85 @@
+@charset "utf-8";
+.reg a:hover{
+	color: #13e;
+}
+.regT {
+	margin-bottom: 20px;
+}
+.regT h3{
+	display: inline-block;
+	font: 22px/25px "宋体";
+}
+.regT span{
+	display: inline-block;
+	margin-left: 30px;
+	color: #000;
+}
+.regT span a{
+	color: #999;
+}
+#regB .phoneCon,#regB .pswCon,#regB .psw2Con{
+	width: 270px;
+}
+#regB .phoneCon span,#regB .pswCon span,#regB .psw2Con span {
+	display: block;
+	width: 270px;
+	height: 25px;
+	line-height: 25px;
+	color: #f33;
+}
+#regB .phoneCon input,#regB .pswCon input,#regB .psw2Con input {
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	display: block;
+	border:1px solid #ccc;
+	padding:0 10px;
+	font-size: 14px;
+}
+#code,#mes{
+	width: 100px;
+	height: 30px;
+	border: 1px solid #ccc;
+	font-size: 14px;
+	padding:0 5px;
+}
+.mesCon,.codeCon{
+	margin-bottom: 25px;
+}
+#mes{
+	float: left;
+	margin-right: 5px;
+}
+.mesCon span{
+	display: block;
+	float: left;
+	width: 110px;
+	height: 30px;
+	border: 1px solid #ccc;
+	text-align: center;
+	line-height: 30px;
+	background-color: rgb(238,238,238);
+}
+.agree .check{
+	float: left;
+	margin-right: 5px;
+	height: 30px;
+	line-height: 30px;
+}
+.agree span{
+	float: left;
+	height: 30px;
+	line-height: 28px;
+	color: #000;
+}
+
+.agree .regNow{
+	width: 290px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 22px;
+	color: #fff;
+	background-color: #e31;
+	border-radius: 3px;
+	cursor: pointer;
+}

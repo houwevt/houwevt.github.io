@@ -1,16 +1,16 @@
 $(function(){
 
 $("#username,#psw").focus(function(){
-		//改变搜索框的边框和value值
-		$(this).parent().css({
-			"border":"1px solid #82b4ff"
-		});
-	}).blur(function(){
-		//重置搜索框的边框和value值
-		$(this).parent().css({
-			"border":"1px solid #ccc"
-		});
-	})
+	//改变搜索框的边框和value值
+	$(this).parent().css({
+		"border":"1px solid #82b4ff"
+	});
+}).blur(function(){
+	//重置搜索框的边框和value值
+	$(this).parent().css({
+		"border":"1px solid #ccc"
+	});
+})
 $("#code").focus(function(){
 	//改变搜索框的边框和value值
 	$(this).css({
