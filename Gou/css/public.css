@@ -495,6 +495,7 @@ b,th{font-weight:normal;}/*消除加粗*/
 	}
 	#nav .goods .goodList{
 		position: absolute;
+		z-index: 10;
 		top: 36px;
 		width: 180px;
 		min-height: 480px;

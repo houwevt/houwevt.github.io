@@ -1,2 +1,262 @@
 @charset "utf-8";
 body{min-height: 1500px;}
+
+#nav .goods > p > span {
+	float: right;
+    height: 9px;
+    width: 15px;
+    margin: 15px 20px 0 0px;
+    display: inline-block;
+	background: url(../img/emList.png) no-repeat 0 -10px;
+}
+#nav .goods > p:hover span{
+	background: url(../img/emList.png) no-repeat;
+}
+#nav .border{
+	width: 100%;
+	border-bottom:1px solid #000; 
+}
+#detail .title{
+	padding-left: 5px;
+	font: 10px/50px "";
+	height: 50px;
+}
+#detail .title > span{
+	color: #999;
+}
+
+.glass {
+	position: relative;
+	width: 350px;
+	height: 350px;
+}
+.glass .small {
+	width: 350px;
+	height: 350px;
+	position: relative;
+	border: 1px solid #ccc;
+}
+.glass .small img {
+	width: 100%;
+	height: 100%;
+}
+.glass .small .filter {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 175px;
+	height: 175px;
+	background: #FEDE4F 50% top no-repeat;
+	border: 1px solid #aaa;
+	cursor: move;
+	opacity: 0.5;
+}
+.glass .large {
+	display: none;
+	overflow: hidden;
+	position: absolute;
+	top: 0px;
+	right: -420px;
+	width: 400px;
+	height: 400px;
+	border: 1px solid #aaa;
+}
+.glass .large img {
+	position: absolute;
+	top: 0;
+	left: 0px;
+	width: 800px;
+	height: 800px;
+}
+#detail .proLeft {
+	margin-right: 25px;
+}
+#detail .proLeft .moreImg{
+	margin-top: 5px;
+}
+#detail .proLeft .moreImg .arrow {
+	background: url(../img/mainCon.png) no-repeat;
+	width: 18px;
+	height: 54px;
+	display: inline-block;
+	cursor: pointer;
+	float: left;
+}
+#detail .proLeft .moreImg .arrow.arrowL {
+	background-position: -142px -116px;
+	padding-right: 3px;
+}
+#detail .proLeft .moreImg .arrow.arrowR {
+	background-position: -167px -116px;
+	padding-left: 3px;
+}
+#detail .proLeft .moreImg .imgWrapper {
+	float: left;
+	width: 302px;
+	height: 58px;
+	overflow: hidden;
+}
+#detail .proLeft .moreImg .imgWrapper .box {
+	width: 671px;
+	height: 58px;
+}
+#detail .proLeft .moreImg .imgWrapper img{
+	padding: 2px;
+    border: 1px solid #ccc;
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-right: 5px;
+}
+#detail .proLeft .moreImg .imgWrapper img.hover{
+	border: 2px solid #f30;
+}
+#detail .proRight > h2{
+	font:18px/28px "microsoft yahei";
+	color: #444;
+}
+#detail .proRight > h3{
+	font:14px/22px "microsoft yahei";
+	color: #999;
+	margin-bottom: 20px;
+}
+#detail .proRight ul {
+	position: relative;
+	width: 605px;
+}
+
+#detail .proRight ul li {
+	overflow: hidden;
+}
+#detail .proRight ul li .dt{
+	float: left;
+	margin-right: 5px;
+	width: 72px;
+	text-align: right;
+	font:12px/30px "宋体";
+}
+#detail .proRight ul li .dd{
+	float: left;
+	font:12px/30px "宋体";
+}
+ul .priceTrue {
+	background: #f7f7f7;
+}
+ul .priceTrue .dt {
+	
+}
+ul .priceTrue .dd {
+	color: #de2507;
+	font:700 18px/30px "Verdana";
+}
+ul .priceOrigin {
+	background: #f7f7f7;
+}
+ul .priceOrigin .dd{
+	color: #999;
+}
+ul .totalSale .dd i {
+	display: inline-block;
+	width: 72px;
+	text-align: right;
+	color: #999;
+}
+ul .totalSale .dd span{
+	color: #de2507;
+}
+ul .totalSale .dd em {
+	font-style:normal;
+	margin: 0 15px;
+}
+ul .color {
+	margin-bottom: 15px;
+}
+ul .color .dd a{
+	display: inline-block;
+	margin-right: 10px;
+	height: 25px;
+	width: 25px;
+	padding:2px 5px;
+	border:1px solid #ddd;
+	line-height: 25px;
+	text-align: center;
+}
+ul .color .dd a{
+	width: 25px;
+}
+ul .size .dd {
+	width: 500px;
+}
+ul .size .dd a{
+	display: inline-block;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	height: 25px;
+	padding:2px 5px;
+	border:2px solid #ddd;
+	line-height: 25px;
+	text-align: center;
+}
+ul .color .dd a.active,ul .size .dd a.active{
+	background: url(../img/priceOn.gif) no-repeat right bottom;
+	border: 2px solid #ff1d02;
+}
+ul .color .dd a:hover,ul .size .dd a:hover {
+	border: 2px solid #ff1d02;
+}
+ul .number .dd .count {
+	border:1px solid #ddd;
+	text-align: center;
+	height: 24px;
+	line-height: 24px;
+	font-size: 14px;
+	display: inline-block;
+}
+ul .number .dd .count a{
+	text-align: center;
+	width: 20px;
+	display: inline-block;
+}
+ul .number .dd a {
+	display: inline-block;
+	width: 20px;
+	height: 24px;
+}
+ul .number .dd .count span {
+	display: inline-block;
+	width: 40px;
+	height: 24px;
+	font-family: arial;
+	border-left:1px solid #ddd;
+	border-right:1px solid #ddd;
+}
+ul .number .dd > p {
+	display: inline-block;
+	color: #999;
+}
+ul .number .dd > p span {
+	margin:0 10px;
+}
+ul .buy a{
+	display: block;
+	color: #fff;
+	width: 180px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	background: #cc1d00;
+	font-size: 20px;
+	color: #fff;
+	font-weight: bold;
+	margin: 20px 0 10px 11px;
+	font-family: "宋体";
+}
+ul .tips {
+	margin-left: 11px;
+}
+ul .safe {
+	position: absolute;
+	top: 0;
+	right: -200px;
+}
