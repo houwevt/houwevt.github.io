@@ -123,7 +123,7 @@
 	font-size: 14px;
 	font-weight: bold;
 }
-.table td a.sum {
+.table td a.add,.table td a.reduce {
 	display: inline-block;
 	border: 1px solid #ddd;
 	background-color: #eee;
@@ -151,4 +151,69 @@
 }
 .table tbody .no td:last-child a{
 	color: #0064ed;
+}
+.carAccount {
+	position: relative;
+	height: 45px;
+	margin-top: 16px;
+}
+.carAccount .carAccountMain {
+	position: absolute;
+	width: 1000px;
+	left: -20px;
+	background-color: #f0f0f0;
+	height: 45px;
+	top: 0px;
+}
+.carAccount .carAccountMain .accountL span {
+	display: inline-block;
+	padding-left: 30px;
+	line-height: 45px;
+}
+.carAccount .carAccountMain .accountL span input {
+	vertical-align: middle;
+	margin-right: 5px;
+}
+.settleMain a {
+	color: #0064ed;
+	font-size: 12px;
+	text-decoration: none;
+	font-weight: normal;
+}
+.carAccount .carAccountMain .accountR span {
+	color: #444;
+	padding-right: 15px;
+	display: inline-block;
+}
+.carAccount .carAccountMain .accountR span {
+	color: #444;
+	padding-right: 15px;
+	display: inline-block;
+}
+.carAccount .carAccountMain .accountR span i {
+	color: #e52100;
+	font-family: Verdana, Geneva, sans-serif;
+	font-style: normal;
+	font-size: 13px;
+}
+.carAccount .carAccountMain .accountR span em {
+	color: #e52100;
+	font-family: Verdana, Geneva, sans-serif;
+	font-style: normal;
+	font-size: 20px;
+	font-weight: bold;
+	vertical-align: middle;
+}
+.carAccount .carAccountMain .accountR input {
+	display: inline-block;
+	width: 140px;
+	height: 45px;
+	background-color: #cf2e13;
+	text-align: center;
+	line-height: 45px;
+	color: #fff;
+	font-family: Microsoft Yahei,"微软雅黑";
+	font-size: 17px;
+	border: none;
+	cursor: pointer;
 }
