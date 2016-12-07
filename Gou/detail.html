@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div id="header"></div>
-	<div id="detail">
+	<div id="detail" data-id="10001">
 		<div class="margin">
 			<h3 class="title">宝宝服饰 > 童装 > 裙子 > <span>花笙糖中国风简约气质旗袍连衣裙</span></h3>
 			<div class="product clear">
@@ -65,27 +65,26 @@
 						<li class="color">
 							<div class="dt">颜色：</div>
 							<div class="dd clear">
-								<a href="javascript:;" class="active">粉色</a>
-								<a href="javascript:;">灰色</a>
+								<a href="javascript:;" class="active" data-color="01">粉色</a>
+								<a href="javascript:;" data-color="02">灰色</a>
 							</div>
 						</li>
 						<li class="size">
 							<div class="dt">尺寸：</div>
 							<div class="dd">
-								<a href="javascript:;" class="active">90码(80-85cm)</a>
-								<a href="javascript:;">100码(90-95cm)</a>
-								<a href="javascript:;">110码(100-105cm)</a>
-								<a href="javascript:;">120码(110-115cm)</a>
-								<a href="javascript:;">130码(120-125cm)</a>
+								<a href="javascript:;" class="active" data-size="1000101">90码(80-85cm)</a>
+								<a href="javascript:;" data-size="1000102">100码(90-95cm)</a>
+								<a href="javascript:;" data-size="1000103">110码(100-105cm)</a>
+								<a href="javascript:;" data-size="1000104">120码(110-115cm)</a>
+								<a href="javascript:;" data-size="1000105">130码(120-125cm)</a>
 							</div>
 						</li>
 						<li class="number">
 							<div class="dt">购买数量：</div>
 							<div class="dd">
 								<div class="count">
-									<a href="javascript:;">-</a><span>1</span><a href="javascript:;">+</a>
+									<a href="javascript:;" class="reduce">-</a><span>1</span><a href="javascript:;" class="add">+</a>
 								</div>
-								
 								<p><i>（库存</i><span>10</span><i>件）</i></p>
 							</div>
 						</li>
@@ -102,6 +101,7 @@
 	</div>
 	<div id="foot"></div>
 	<script src="js/jquery.1.11.3.js"></script>
+	<script src="js/jquery.cookie.js"></script>
 	<script src="js/head.js"></script>
 	<script src="js/glass.js"></script>
 	<script src="js/detail.js"></script>

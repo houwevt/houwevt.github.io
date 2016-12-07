@@ -1,0 +1,154 @@
+@charset "utf-8";
+.margin {
+	width: 1002px;
+	margin: 0 auto;
+}
+#cartLogo {
+	border-bottom: 1px solid #d10000;
+	margin-bottom: 20px;
+}
+
+#cartCon h2 {
+	background: #c97070;
+	height: 28px;
+	line-height: 28px;
+	padding: 0 16px;
+	font-size: 16px;
+	color: #fff;
+}
+#cartCon .cartBox {
+	border:1px solid #c97070;
+	padding:20px;
+}
+#cartCon .cartBox .allCho {
+	color: #333;
+	height: 20px;
+	line-height: 20px;
+	font-family: Arial, Helvetica, sans-serif;
+	margin-bottom: 10px;
+}
+#cartCon .cartBox .allCho input {
+	vertical-align: middle;
+	margin-right: 5px;
+}
+
+.table td{
+	border: 1px solid #ccc;
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 10px;
+}
+.table tbody p img {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border: 1px solid #bbb;
+}
+.table thead tr {
+	background: #eee;
+}
+.table thead tr td{
+	padding:2px 10px;
+
+}
+.table thead tr td:first-child input {
+	vertical-align: middle;
+	margin-right: 15px;
+}
+.table thead tr td:first-child span {
+	color: #e0541e;
+	font-weight: 700;
+}
+.table tbody .by td {
+	padding:3px;
+}
+.table tbody .by td .bying {
+	background: #e0f2f1;
+	border-radius: 5px;
+	height: 28px;
+	line-height: 28px;
+	color: #00a5b1;
+}
+.table tbody .by td .bying em {
+	display: inline-block;
+	background: #6bcbd2;
+	line-height: 20px;
+	padding: 0px 8px;
+	height: 20px;
+	text-align: center;
+	color: #fff;
+	font-size: 12px;
+	margin: 4px 8px;
+	float: left;
+	border-radius: 5px;
+	font-style: normal;
+}
+.table tbody .by td .bying span {
+	display: inline-block;
+	border: 1px solid #74ced4;
+	background: #fff;
+	line-height: 20px;
+	padding: 0px 4px;
+	height: 20px;
+	text-align: center;
+	color: #74ced4;
+	font-size: 12px;
+	margin: 3px 20px;
+}
+.table tbody .no .divGoods{
+	float: left;
+	width: auto;
+	position: relative;
+}
+.table tbody .no .divGoods input{
+	margin: 15px 10px 0px 0px;
+}
+.table tbody p.p1 {
+	padding-left: 15px;
+	line-height: 16px;
+	max-height: 32px;
+	overflow: hidden;
+	color: #444;
+}
+.table tbody p.p2 {
+	padding-left: 15px;
+	line-height: 16px;
+	height: 16px;
+	overflow: hidden;
+	color: #999;
+	margin-top: 8px;
+}
+.table tbody span {
+	font-family: Verdana, Geneva, sans-serif;
+	color: #444;
+	font-size: 14px;
+	font-weight: bold;
+}
+.table td a.sum {
+	display: inline-block;
+	border: 1px solid #ddd;
+	background-color: #eee;
+	width: 20px;
+	height: 24px;
+	line-height: 24px;
+	text-align: center;
+	color: #666;
+	text-decoration: none;
+	font-size: 14px;
+	vertical-align: middle;
+}
+.table td input.sum {
+	border: 1px solid #ddd;
+	width: 40px;
+	height: 24px;
+	line-height: 24px;
+	display: inline-block;
+	text-align: center;
+	font-size: 14px;
+	vertical-align: middle;
+	margin: 0px;
+	border-left: none;
+	border-right: none;
+}
+.table tbody .no td:last-child a{
+	color: #0064ed;
+}
