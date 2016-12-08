@@ -114,6 +114,7 @@ b,th{font-weight:normal;}/*消除加粗*/
 	#right .rCar{
 		position: relative;
 		z-index: 9;
+		display: block;
 		width:35px;
 		margin-top: 5px;
 		float: left;

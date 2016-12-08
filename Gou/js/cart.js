@@ -70,13 +70,18 @@ var cart = {
 	data: null,
 	cart: {},
 	pay: {},
+	count:0,
 	cartCon: $('.table tbody'),
+	totalAmountbox:$('.carAccount .carAccountMain .accountR span i'),
+	totalMoneybox:$('.carAccount .carAccountMain .accountR span em'),
+	goPay:$('.accountBtn'),
+	totalNum:0,
+	totalMoney:0,
 	init:function(){
 		this.readCookie();
+		
 		var that = this;
 		$.getJSON('js/data.json?key='+Math.random(),function(data){
-			/*console.log(data);
-			console.log(that.cart);*/
 			that.data = data;
 			//遍历cookie中的数据，放到页面上
 			for(var key in that.cart){
@@ -93,20 +98,19 @@ var cart = {
 						var description = that.data[colorId]["goods-name"];//商品描述
 						var dataPrice = that.data[colorId]["goods-sale"]//商品售价
 						var littleSum = dataPrice * dataCount;//商品售价小计
-						
-						//console.log(that.cart[k]);
-						console.log(k);
-						//console.log(that.data.colorId);
-						//console.log(colorId);
-						//console.log(dataSize);
-						//console.log(urlColor);
-						//console.log(dataPrice);
-						//console.log(dataCount);
-						//console.log(littleSum);
-						//console.log(description);
+						that.pay[k] = littleSum;
+						that.totalMoney += littleSum;
+						that.totalNum++;
+						that.totalMoneybox.html(that.totalMoney);
+						that.totalAmountbox.html(that.totalNum);
 						tr.attr({
 							'colorId': colorId,
 							'oneID': k,
+							"data-count":dataCount,
+							"data-price":dataPrice,
+							"data-color":dataColor,
+							"data-size":dataSize,
+							"data-littleSum":littleSum
 						});
 						//信息填充
 						tr.find("td .divGoods p a img").attr({
@@ -115,15 +119,10 @@ var cart = {
 						});
 						tr.find("td .divGoods p.p1 a span").html(description);
 						tr.find("td .divGoods p.p2").html("颜色："+ dataColor +"，尺寸："+ dataSize);
-						tr.find("td.tag span").html("￥" + dataPrice);
+						tr.find("td.tag span strong").html(dataPrice);
 						tr.find("td input.sum").val(dataCount);
-						tr.find("td span.red").html("￥" + littleSum);
-						//信息填充
-						/*ul.find('.goods-size').html( data[gid]['size'][k]);
-						ul.find('.goods-price').html( data[gid]['goods-sale'].toFixed(2));
-						ul.find('.amount-input').val( that.cart[k].amount );
-						var total = that.cart[k].amount * data[gid]['goods-sale'];
-						ul.find('.goods-money').html( total.toFixed(2) );*/
+						tr.find("td span.red strong").html(littleSum);
+						
 						//追加到商品区
 						that.cartCon.append(tr);
 					});
@@ -133,6 +132,10 @@ var cart = {
 		this.remove();
 		this.increase();
 		this.decrease();
+		this.goodsSelect();
+		this.selectAll();
+		this.remove();
+		this.delSelected();
 	},
 	//读取cookie
 	readCookie: function(){
@@ -147,11 +150,93 @@ var cart = {
 			if( confirm('确定删除宝贝吗？') ){
 				//当前商品从页面消失
 				$(this).parents('tr.no').remove();
+				var count = $(this).parents('tr.no').attr("data-count");
+				var littleSum = $(this).parents('tr.no').attr("data-littleSum");
+				that.totalNum -= count;
+				that.totalMoney -= littleSum;
+				that.totalAmountbox.html(that.totalNum);
+				that.totalMoneybox.html(that.totalMoney.toFixed(2));
 				//从cookie中删除
 				var oneID = $(this).parents('tr.no').attr('oneID');
 				//删除  (复习delete)
 				delete that.cart[oneID];
 				that.setCookie();
+			}
+		});
+	},
+	//商品选择
+	goodsSelect: function(){
+		var that = this;
+		this.cartCon.on('change','input.td-checkbox[type="checkbox"]',function(){
+			var goodsItem = $(this).parents('tr.no');
+			var count = parseInt($(this).parents('tr.no').attr("data-count"));
+			//获取商品id
+			var oneID = goodsItem.attr('oneID');
+			//总价
+			var littleSum = goodsItem.attr("data-littleSum")
+			//如果已经存在，再点击取消
+			if(!goodsItem.find("input[type='checkbox']").prop("checked")){
+				delete that.pay[oneID];
+			}else{
+				that.pay[oneID] = littleSum;
+			}
+			//判断是否需要选中或者撤销全选按钮的选中状态
+			var allCheckBox = that.cartCon.find('input[type="checkbox"]');
+			var allChecked = that.cartCon.find('input[type="checkbox"]:checked');
+			//比较所有复选框的个数和被选中复选框的个数，如果相等，则全部被选中了
+			if(allCheckBox.length == allChecked.length){
+				//让全选按钮选中
+				$('.select-all-btn').prop('checked',true);
+			}else{
+				$('.select-all-btn').prop('checked',false);
+			}
+			//处理页面
+			that.handlePay();
+		});
+	},
+	//全选
+	selectAll: function(){
+		$('.select-all-btn').click(function(){
+			//获取自己的状态  选中或者不选中
+			var status = $(this).prop('checked');
+			var allCheckbox = $('.cartBox input[type="checkbox"]');
+			//如果自己选中
+			if(status){
+				//让所有商品的选择按钮选中
+				allCheckbox.prop('checked',true);
+			}else{
+				//让所有商品的选择按钮不选中
+				allCheckbox.prop('checked',false);
+			}
+			//触发商品前面的复选框
+			allCheckbox.change();
+		});
+	},
+	//删除选中的商品
+	delSelected: function(){
+		var that = this;
+		$('#Submit1').click(function(){
+			var allChecked = that.cartCon.find('input[type="checkbox"]:checked');
+			if(allChecked.length == 0){
+				alert('请选择需要删除的商品!!!');
+				return;
+			}
+			if(confirm('确定删除选中的宝贝吗？')){
+				//遍历所有被选中的商品
+				allChecked.each(function(){
+					//获取oneID
+					var oneID = $(this).parents('tr.no').attr('oneID');
+					var count = $(this).parents('tr.no').attr('data-count');
+					//从页面消失
+					$(this).parents('tr.no').remove();
+					//从cookie中删除
+					delete that.cart[oneID];
+					that.setCookie();
+					//处理结算信息
+					delete that.pay[oneID];
+					that.handlePay();
+
+				});
 			}
 		});
 	},
@@ -163,7 +248,9 @@ var cart = {
 			//input是自己的前一个兄弟
 			var amount = $(this).prev().val();
 			//获取商品id和库存
+			// var oneID = $(this).parents('tr.no').attr('oneID');
 			var colorId = $(this).parents('tr.no').attr('colorId');
+			var price = $(this).parents('tr.no').attr("data-price");
 			var stock = that.data[colorId].stock;
 			//判断是否大于库存
 			if(amount >= stock){
@@ -171,7 +258,8 @@ var cart = {
 			}
 			amount++;
 			$(this).prev().val(amount);
-			//调用会写cookie功能
+			$(this).parents('tr.no').attr("data-count",amount);
+			$(this).parents('tr.no').attr("data-littleSum",amount*price);
 			that.handleCookie( $(this).prev() );
 		});
 	},
@@ -180,6 +268,7 @@ var cart = {
 		var that = this;
 		//-点击
 		this.cartCon.on("click",'td a.reduce',function(){
+			var price = $(this).parents('tr.no').attr("data-price");
 			//input是自己的后一个兄弟
 			var amount = $(this).next().val();
 			//判断是否大于库存
@@ -188,6 +277,8 @@ var cart = {
 			}
 			amount--;
 			$(this).next().val(amount);
+			$(this).parents('tr.no').attr("data-count",amount);
+			$(this).parents('tr.no').attr("data-littleSum",amount*price);
 			that.handleCookie( $(this).next() );
 		});
 	},
@@ -195,13 +286,13 @@ var cart = {
 	handleCookie: function(input){
 		var goodsItem = input.parents('tr.no');
 		var oneID = goodsItem.attr('oneID');
-		
-		//处理总价
-		var price = parseFloat(goodsItem.find('td.tag span').html() );
-		var totalMoneyBox = $(".carAccount .carAccountMain .accountR span em");
+		//处理小计
+		var price = goodsItem.attr('data-price');;//单价
+		var number = goodsItem.attr('data-count');;//单价
+		var littleSumBox = goodsItem.find("td span.red strong");//小计
 		//重新显示单价商品总价
-		var totalMoney = ( parseInt(input.val()) * price ).toFixed(2)
-		totalMoneyBox.html( totalMoney );
+		var littleSum = ( number * price )
+		littleSumBox.html(littleSum );
 		
 		//重新给cart中的数量赋值
 		this.cart[oneID].count = parseInt( input.val() );
@@ -211,32 +302,32 @@ var cart = {
 		//判断当前商品是否被选中
 		if(goodsItem.find('input[type="checkbox"]').prop('checked')){
 			//改变pay对象里面当前商品的总价
-			this.pay[oneID] = totalMoney;
+			this.pay[oneID] = littleSum;
 			//调用结算商品信息方法
 			this.handlePay();
 		}
 	},
 	//处理数量和总价
 	handlePay: function(){
-		var goodsAmount = $('.carAccount .carAccountMain .accountR span i');
-		var goodsMoney = $('.carAccount .carAccountMain .accountR span em');
-		var goPay = $('.accountBtn');
-		//遍历pay对象，获取件数和总价
-		var totalNum = 0;
-		var totalMoney = 0;
+		//遍历pay,重新计算总价
+		this.totalMoney = 0;
+		this.totalNum = 0;
 		for(var key in this.pay){
-			totalNum++;
-			totalMoney += parseFloat(this.pay[key]);
+			this.totalNum ++;
+			this.totalMoney += parseInt(this.pay[key]);
 		}
 		//处理结算按钮
-		if(totalNum > 0){
-			goPay.addClass('can-pay');
+		if(this.totalNum > 0){
+			this.goPay.addClass('can-pay');
+			console.log(true)
 		}else{
-			goPay.removeClass('can-pay');
+			this.goPay.removeClass('can-pay');
+			console.log(false)
 		}
+		
 		//给总价和总量重新赋值
-		goodsAmount.html(totalNum);
-		goodsMoney.html(totalMoney.toFixed(2));
+		this.totalAmountbox.html(this.totalNum);
+		this.totalMoneybox.html(this.totalMoney.toFixed(2));
 	},
 	//设置cookie
 	setCookie: function(){

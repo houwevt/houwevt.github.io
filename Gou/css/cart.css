@@ -204,16 +204,25 @@
 	font-weight: bold;
 	vertical-align: middle;
 }
+.carAccount .carAccountMain .accountR span strong {
+	color: #e52100;
+	font-size: 20px;
+	vertical-align: middle;
+}
 .carAccount .carAccountMain .accountR input {
 	display: inline-block;
 	width: 140px;
 	height: 45px;
-	background-color: #cf2e13;
+	background: #aaa;
 	text-align: center;
 	line-height: 45px;
 	color: #fff;
 	font-family: Microsoft Yahei,"微软雅黑";
 	font-size: 17px;
 	border: none;
+	cursor: not-allowed;
+}
+.carAccount .carAccountMain .accountR .accountBtn.can-pay{
 	cursor: pointer;
+	background-color: #cf2e13;
 }
