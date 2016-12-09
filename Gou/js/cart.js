@@ -120,7 +120,7 @@ var cart = {
 						tr.find("td .divGoods p.p1 a span").html(description);
 						tr.find("td .divGoods p.p2").html("颜色："+ dataColor +"，尺寸："+ dataSize);
 						tr.find("td.tag span strong").html(dataPrice);
-						tr.find("td input.sum").val(dataCount);
+						tr.find("td span.sum").html(dataCount);
 						tr.find("td span.red strong").html(littleSum);
 						
 						//追加到商品区
@@ -246,7 +246,7 @@ var cart = {
 		//+点击
 		this.cartCon.on("click",'td a.add',function(){
 			//input是自己的前一个兄弟
-			var amount = $(this).prev().val();
+			var amount = $(this).prev().html();
 			//获取商品id和库存
 			// var oneID = $(this).parents('tr.no').attr('oneID');
 			var colorId = $(this).parents('tr.no').attr('colorId');
@@ -257,7 +257,7 @@ var cart = {
 				return;
 			}
 			amount++;
-			$(this).prev().val(amount);
+			$(this).prev().html(amount);
 			$(this).parents('tr.no').attr("data-count",amount);
 			$(this).parents('tr.no').attr("data-littleSum",amount*price);
 			that.handleCookie( $(this).prev() );
@@ -270,21 +270,21 @@ var cart = {
 		this.cartCon.on("click",'td a.reduce',function(){
 			var price = $(this).parents('tr.no').attr("data-price");
 			//input是自己的后一个兄弟
-			var amount = $(this).next().val();
+			var amount = $(this).next().html();
 			//判断是否大于库存
 			if(amount <= 1){
 				return;
 			}
 			amount--;
-			$(this).next().val(amount);
+			$(this).next().html(amount);
 			$(this).parents('tr.no').attr("data-count",amount);
 			$(this).parents('tr.no').attr("data-littleSum",amount*price);
 			that.handleCookie( $(this).next() );
 		});
 	},
-	//数量回写cookie   input
-	handleCookie: function(input){
-		var goodsItem = input.parents('tr.no');
+	//数量回写cookie   span
+	handleCookie: function(span){
+		var goodsItem = span.parents('tr.no');
 		var oneID = goodsItem.attr('oneID');
 		//处理小计
 		var price = goodsItem.attr('data-price');;//单价
@@ -295,7 +295,7 @@ var cart = {
 		littleSumBox.html(littleSum );
 		
 		//重新给cart中的数量赋值
-		this.cart[oneID].count = parseInt( input.val() );
+		this.cart[oneID].count = parseInt( span.html() );
 		//回写cookie
 		this.setCookie();
 		
@@ -319,10 +319,8 @@ var cart = {
 		//处理结算按钮
 		if(this.totalNum > 0){
 			this.goPay.addClass('can-pay');
-			console.log(true)
 		}else{
 			this.goPay.removeClass('can-pay');
-			console.log(false)
 		}
 		
 		//给总价和总量重新赋值

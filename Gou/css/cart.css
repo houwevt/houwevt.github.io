@@ -136,7 +136,7 @@
 	font-size: 14px;
 	vertical-align: middle;
 }
-.table td input.sum {
+.table td span.sum {
 	border: 1px solid #ddd;
 	width: 40px;
 	height: 24px;
