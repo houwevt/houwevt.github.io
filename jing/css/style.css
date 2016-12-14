@@ -7,8 +7,9 @@
 	margin:250px auto 0;
 	position: relative;
 	transform-style: preserve-3d;
-	-transform:rotateZ(-20deg) rotateX(-20deg) rotateY(20deg);
-	animation: move 20s linear both alternate infinite;
+	-webkit-transform-style: preserve-3d;
+	animation: move 10s linear both alternate infinite;
+	-webkit-animation: move 10s linear both alternate infinite;
 }
 .box {
 	width: 190px;
@@ -47,4 +48,12 @@
 	100%{
 		transform:rotateZ(-20deg) rotateX(-20deg) rotateY(360deg);
 	}
-} 
+}
+@-webkit-keyframes move {
+	0%{
+		transform:rotateZ(-20deg) rotateX(-20deg) rotateY(0deg);
+	}
+	100%{
+		transform:rotateZ(-20deg) rotateX(-20deg) rotateY(360deg);
+	}
+}
