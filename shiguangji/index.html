@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/animate.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/swiper-3.3.1.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/sgj.css" />
+		<script type="text/javascript" src="js/swiper-3.3.1.min.js"></script>
+		<script type="text/javascript" src="js/swiper.animate1.0.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+		<script src="js/echarts-all.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<img src="img/0-1.png"/>
+					<img src="img/0-2.png"/>
+					<img src="img/0-3.png" class="ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="1.5s" swiper-animate-delay=".5s" />
+				</div>
+				<div class="swiper-slide">
+					<div id="empty"></div>
+					<img src="img/1-1.png" class="ani" swiper-animate-effect="fadeInDown" swiper-animate-duration=".5s" swiper-animate-delay=".5s" />
+					<!--你我相遇中的文字添加处-->
+					<div id="meet">
+						<br />
+						<br />
+						<p><span>2014</span>年<span>7</span>月<span>21</span>日</p>
+						<p>你第一次来到这里，</p>
+						<p>跨越过春夏秋天</p>
+						<p>我们互相陪伴度过了<span>686</span>天</p>
+						<p>谢谢你~~</p>
+					</div>
+					<img src="img/1-2.png"/>
+				</div>
+				<div class="swiper-slide">
+					<div id="empty"></div>
+					<img src="img/2-1.png" class="ani" swiper-animate-effect="fadeInDown" swiper-animate-duration=".5s" swiper-animate-delay=".5s" />
+					<!--我在这里中的文字添加处-->
+					<div id="here">
+						<br />
+						<br />
+						<p>我一共关注了<span>122</span>位粉粉er</p>
+						<p><span>2333</span>位关注了你</p>
+						<p>你也留下了<span>800</span>条评论给亲爱的小伙伴</p>
+						<p>因为你的存在</p>
+						<p>有了朋友的温暖</p>
+					</div>
+					<img src="img/2-2.png" class="ani" swiper-animate-effect="zoomInRight" swiper-animate-duration="2s" swiper-animate-delay="。5s" />
+					<div id="empty2"></div>
+					<img src="img/2-3.png" class="ani" swiper-animate-effect="fadeInLeftBig" swiper-animate-duration="2s" swiper-animate-delay="1s" />
+					<img src="img/2-4.png" class="ani" swiper-animate-effect="fadeInUpBig" swiper-animate-duration="2s" swiper-animate-delay="1s" />
+				</div>
+				<div class="swiper-slide">
+					<div id="empty"></div>
+					<img src="img/3-1.png" class="ani" swiper-animate-effect="fadeInDown" swiper-animate-duration=".5s" swiper-animate-delay=".5s" />
+					<!--我的互动文字添加处-->
+					<div id="interact">
+						<br />
+						<br />
+						<p>我一共写下了<span>XXX</span>点滴</p>
+						<p>发布了<span>XX</span>个话题</p>
+						<p>我送出了<span>XXX</span>个喜欢</p>
+						<p>还收到了<span>XX</span>个喜欢~~~</p>
+						<p>我知道我也喜欢给你点赞</p>
+					</div>
+					<img src="img/3-2.png" class="ani" swiper-animate-effect="rubberBand" swiper-animate-duration=".5s" swiper-animate-delay=".5s" />
+					<img src="img/3-3.png" />
+				</div>
+				<div class="swiper-slide">
+					<div id="empty"></div>
+					<img src="img/4-1.png" class="ani" swiper-animate-effect="hinge" swiper-animate-duration="1s" swiper-animate-delay=".5s" />
+					<img src="img/4-2.png" class="ani" swiper-animate-effect="fadeInDown" swiper-animate-duration=".5s" swiper-animate-delay=".5s" />
+					<!--我的财富文字添加处-->
+					<div id="wealth">
+						<br />
+						<br />
+						<p>我总共赚取了<span>XXX</span>个粉币</p>
+						<p>成功战胜了<span>XX</span>%的粉粉er</p>
+						<p>花费了<span>XXX</span>个金币</p>
+						<p>战胜了<span>XX</span>%的 粉粉er</p>
+						<p>麻麻你再也不用担心我吃土了</p>
+					</div>
+					<img src="img/4-3.png"/>
+					<div id="empty2"></div>
+				</div>
+				<div class="swiper-slide">
+					<div id="empty"></div>
+					<img src="img/5-1.png" class="ani" swiper-animate-effect="fadeInDown" swiper-animate-duration="1s" swiper-animate-delay=".5s" />
+					<br/>
+					<div id="echart"></div>
+					<img src="img/5-2.png" />
+				</div>
+				<div class="swiper-slide">
+					<div id="empty"></div>
+					<img src="img/6-1.png" class="ani" swiper-animate-effect="fadeInDown" swiper-animate-duration=".5s" swiper-animate-delay=".5s" />
+					<!--致粉丝文字添加处-->
+					<div id="toFans">
+						<br />
+						<br />
+						<p>与你相遇，</p>
+						<p>好幸运，</p>
+						<p>你可知道，</p>
+						<p>这个世界，</p>
+						<p>一定有人怀揣时光机</p>
+						<p>来到你的面前，</p>
+						<p>因为你的存在，</p>
+						<p>世界才会闪闪发光。</p>
+					</div>
+					<div id="empty2"></div>
+					<img src="img/6-2.png" class="ani" swiper-animate-effect="rubberBand" swiper-animate-duration="1s" swiper-animate-delay="0.5s" />
+					<img src="img/6-3.png" class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="2.5s" swiper-animate-delay=".5s" />
+					<img src="img/6-4.png" class="ani" swiper-animate-effect="fadeInRightBig" swiper-animate-duration="1s" swiper-animate-delay="1s" />
+					<img src="img/6-5.png" class="ani" swiper-animate-effect="fadeInLeftBig" swiper-animate-duration="2s" swiper-animate-delay="2s" />
+					<img src="img/6-6.png" class="ani" swiper-animate-effect="rollIn" swiper-animate-duration="1s" swiper-animate-delay="2.5s" />
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var mySwiper = new Swiper(".swiper-container",{
+			direction : "vertical",
+			onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
+		    swiperAnimateCache(swiper); //隐藏动画元素 
+		    swiperAnimate(swiper); //初始化完成开始动画
+		  }, 
+		  	onSlideChangeEnd: function(swiper){ 
+		    swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+		  } 
+		})
+	</script>
+   
+    <script type="text/javascript">
+        var option = { 
+            title: {   
+                text: ''
+            },
+            tooltip: {   //提示框，鼠标悬浮交互时的信息提示
+                show:true,
+                trigger: 'axis'
+            },
+            legend: {    //图例，每个图表最多仅有一个图例
+                x: 'center',
+                data: ['ESOP系统', 'VGOP系统']
+            },
+            polar: [{    //极坐标
+                indicator: [{text: '计划部',max: 50},
+                            {text: '市场部',max: 50},
+                            {text: '政企客户部',max: 50},
+                            {text: '客户服务部',max: 50},
+                            {text: '铁通公司',max: 50},
+                            {text: '其他',max: 50}
+                           ],
+                radius: 50,     
+                startAngle: 120   // 改变雷达图的旋转度数
+            }],
+            
+            series: [{         // 驱动图表生成的数据内容数组，数组中每一项为一个系列的选项及数据
+                name: '总点击量',
+                type: 'radar',
+                itemStyle: {//图形样式，可设置图表内图形的默认样式和强调样式（悬浮时样式）：
+                    normal: {
+                        areaStyle: {
+                            type: 'default'
+                        }
+                    }
+                },
+                data: [{
+                    value: [],      //外部加载，也可以通过ajax去加载外部数据。
+                    name: ''      
+                }, {
+                    value: [39,49,45,47,49,17],
+                    name: 'VGOP系统'
+                }]
+            }]
+        };
+        $(function() {
+            option.series[0].data[0].value=[6,16,17,26,26,32];  // 加载数据到data中
+            option.series[0].data[0].name ='ESOP系统';
+            var myChart = echarts.init(document.getElementById('echart')); 
+            myChart.setOption(option, true);   //为echarts对象加载数据
+        });
+    </script>
+</html>
